@@ -1,0 +1,255 @@
+{
+  "conciliationQueue": [
+    {
+      "id": 1,
+      "invoiceLineText": "Peps Cola 350ml",
+      "suggestedProductId": 101,
+      "suggestedProductName": "Pepsi 350ml",
+      "confidenceScore": 73
+    },
+    {
+      "id": 2,
+      "invoiceLineText": "Leche Deslact 1L",
+      "suggestedProductId": 103,
+      "suggestedProductName": "Leche Deslactosada Entera 1L",
+      "confidenceScore": 61
+    },
+    {
+      "id": 3,
+      "invoiceLineText": "Detergx Ropa",
+      "suggestedProductId": 102,
+      "suggestedProductName": "Detergente Ropa Blanca 1kg",
+      "confidenceScore": 45
+    }
+  ],
+  "categoryTree": [
+    { "categoryId": 1, "parentId": null, "name": "Bebidas" },
+    { "categoryId": 2, "parentId": 1, "name": "Gaseosas" },
+    { "categoryId": 3, "parentId": 2, "name": "Pepsi" },
+    { "categoryId": 4, "parentId": 3, "name": "Coca-Cola" },
+    { "categoryId": 5, "parentId": 2, "name": "Jugos" },
+    { "categoryId": 6, "parentId": null, "name": "Lácteos" },
+    { "categoryId": 7, "parentId": null, "name": "Snacks" },
+    { "categoryId": 8, "parentId": null, "name": "Limpieza" },
+    { "categoryId": 9, "parentId": null, "name": "Abarrotes" },
+    { "categoryId": 10, "parentId": 9, "name": "Granos" }
+  ],
+  "inventoryDirectory": [
+    {
+      "productId": 101,
+      "name": "Pepsi 350ml",
+      "categoryId": 3,
+      "uom": "UND",
+      "balance": 142,
+      "preferredSupplier": "Distribuidora XYZ",
+      "isActive": true
+    },
+    {
+      "productId": 102,
+      "name": "Detergente Ropa Blanca 1kg",
+      "categoryId": 8,
+      "uom": "KG",
+      "balance": 36,
+      "preferredSupplier": "Casa Química SA",
+      "isActive": true
+    },
+    {
+      "productId": 103,
+      "name": "Leche Deslactosada 1L",
+      "categoryId": null,
+      "uom": "UND",
+      "balance": 210,
+      "preferredSupplier": "Lácteos del Valle",
+      "isActive": true
+    },
+    {
+      "productId": 104,
+      "name": "Arroz Superior 1kg",
+      "categoryId": 10,
+      "uom": "KG",
+      "balance": 420,
+      "preferredSupplier": "Molinos del Sur",
+      "isActive": false
+    }
+  ],
+  "dashboardMetrics": {
+    "totalValuation": 128450,
+    "currency": "USD",
+    "activeItems": 1284,
+    "criticalStockAlerts": 12,
+    "reorderSuggestions": [
+      {
+        "productId": 101,
+        "productName": "Pepsi 350ml",
+        "currentStock": 8,
+        "reorderLevel": 25,
+        "suggestedQty": 60
+      },
+      {
+        "productId": 104,
+        "productName": "Arroz 1kg",
+        "currentStock": 14,
+        "reorderLevel": 30,
+        "suggestedQty": 90
+      }
+    ],
+    "deadStock": [
+      {
+        "productId": 105,
+        "productName": "Salsa BBQ 400g",
+        "lastSaleDate": "2026-03-12",
+        "daysSinceMovement": 162,
+        "value": 340
+      }
+    ]
+  },
+  "dashboardMetricsByRange": {
+    "ago_2026": {
+      "totalValuation": 128450,
+      "currency": "USD",
+      "activeItems": 1284,
+      "criticalStockAlerts": 12,
+      "reorderSuggestions": [
+        {
+          "productId": 101,
+          "productName": "Pepsi 350ml",
+          "currentStock": 8,
+          "reorderLevel": 25,
+          "suggestedQty": 60
+        },
+        {
+          "productId": 104,
+          "productName": "Arroz Superior 1kg",
+          "currentStock": 14,
+          "reorderLevel": 30,
+          "suggestedQty": 90
+        }
+      ],
+      "deadStock": [
+        {
+          "productId": 105,
+          "productName": "Salsa BBQ 400g",
+          "lastSaleDate": "2026-03-12",
+          "daysSinceMovement": 162,
+          "value": 340
+        }
+      ]
+    },
+    "jul_2026": {
+      "totalValuation": 112300,
+      "currency": "USD",
+      "activeItems": 1210,
+      "criticalStockAlerts": 8,
+      "reorderSuggestions": [
+        {
+          "productId": 101,
+          "productName": "Pepsi 350ml",
+          "currentStock": 5,
+          "reorderLevel": 25,
+          "suggestedQty": 80
+        },
+        {
+          "productId": 102,
+          "productName": "Detergente Ropa Blanca 1kg",
+          "currentStock": 10,
+          "reorderLevel": 15,
+          "suggestedQty": 50
+        },
+        {
+          "productId": 103,
+          "productName": "Leche Deslactosada 1L",
+          "currentStock": 3,
+          "reorderLevel": 20,
+          "suggestedQty": 60
+        }
+      ],
+      "deadStock": [
+        {
+          "productId": 106,
+          "productName": "Mayonesa 400g",
+          "lastSaleDate": "2026-07-01",
+          "daysSinceMovement": 28,
+          "value": 180
+        }
+      ]
+    }
+  },
+  "locationTree": [
+    {
+      "locationId": 1,
+      "parentId": null,
+      "name": "ABC Company"
+    },
+    {
+      "locationId": 2,
+      "parentId": 1,
+      "name": "Bodega Principal"
+    },
+    {
+      "locationId": 3,
+      "parentId": 1,
+      "name": "Punto de Venta Norte"
+    },
+    {
+      "locationId": 4,
+      "parentId": 2,
+      "name": "Estante A1"
+    },
+    {
+      "locationId": 5,
+      "parentId": 2,
+      "name": "Estante A2"
+    }
+  ],
+  "unitOfMeasures": [
+    { "unitId": 1, "code": "UND", "name": "Unidad" },
+    { "unitId": 2, "code": "KG", "name": "Kilogramo" },
+    { "unitId": 3, "code": "LT", "name": "Litro" },
+    { "unitId": 4, "code": "CA", "name": "Caja" },
+    { "unitId": 5, "code": "GR", "name": "Gramo" },
+    { "unitId": 6, "code": "MT", "name": "Metro" }
+  ],
+  "productTypes": ["Activo", "Servicio", "No rastreable"],
+  "reorderPolicies": [
+    {
+      "policyId": 1,
+      "productId": 101,
+      "productName": "Pepsi 350ml",
+      "reorderLevel": 25,
+      "reorderQuantity": 60,
+      "isActive": true
+    },
+    {
+      "policyId": 2,
+      "productId": 104,
+      "productName": "Arroz Superior 1kg",
+      "reorderLevel": 30,
+      "reorderQuantity": 90,
+      "isActive": true
+    },
+    {
+      "policyId": 3,
+      "productId": 102,
+      "productName": "Detergente Ropa Blanca 1kg",
+      "reorderLevel": 15,
+      "reorderQuantity": 40,
+      "isActive": false
+    },
+    {
+      "policyId": 4,
+      "productId": 103,
+      "productName": "Leche Deslactosada 1L",
+      "reorderLevel": 20,
+      "reorderQuantity": 50,
+      "isActive": true
+    },
+    {
+      "policyId": 5,
+      "productId": 105,
+      "productName": "Salsa BBQ 400g",
+      "reorderLevel": 10,
+      "reorderQuantity": 25,
+      "isActive": false
+    }
+  ]
+}

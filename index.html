@@ -91,38 +91,7 @@
                 <th>Acciones</th>
               </tr>
             </thead>
-            <tbody>
-              <tr data-row>
-                <td>"Peps Cola 350ml"</td>
-                <td>→ Pepsi 350ml</td>
-                <td><span class="confidence conf-amber">73%</span></td>
-                <td class="actions-cell">
-                  <button class="btn btn-sm btn-primary act-emparejar">Emparejar</button>
-                  <button class="btn btn-sm btn-outline act-crear">Crear Nuevo</button>
-                  <button class="btn btn-sm btn-ghost act-buscar">Buscar…</button>
-                </td>
-              </tr>
-              <tr data-row>
-                <td>"Leche Deslact 1L"</td>
-                <td>→ Leche Deslactosada Entera 1L</td>
-                <td><span class="confidence conf-amber">61%</span></td>
-                <td class="actions-cell">
-                  <button class="btn btn-sm btn-primary act-emparejar">Emparejar</button>
-                  <button class="btn btn-sm btn-outline act-crear">Crear Nuevo</button>
-                  <button class="btn btn-sm btn-ghost act-buscar">Buscar…</button>
-                </td>
-              </tr>
-              <tr data-row>
-                <td>"Detergx Ropa"</td>
-                <td>→ Detergente Ropa Blanca 1kg</td>
-                <td><span class="confidence conf-red">45%</span></td>
-                <td class="actions-cell">
-                  <button class="btn btn-sm btn-primary act-emparejar">Emparejar</button>
-                  <button class="btn btn-sm btn-outline act-crear">Crear Nuevo</button>
-                  <button class="btn btn-sm btn-ghost act-buscar">Buscar…</button>
-                </td>
-              </tr>
-            </tbody>
+            <tbody id="conciliation-tbody"></tbody>
           </table>
           <p class="legend"><span class="dot-legend dot-red"></span> &lt;50% &nbsp; <span class="dot-legend dot-amber"></span> 50–80% &nbsp; el usuario resuelve fila por fila</p>
         </div>
@@ -142,16 +111,16 @@
       <div class="kpi-row">
         <div class="card kpi">
           <span class="kpi-label">Valorización Total</span>
-          <span class="kpi-value">$128,450</span>
-          <div class="kpi-tags"><span class="chip">USD</span><span class="chip">Local</span></div>
+          <span class="kpi-value" id="kpi-valuation">—</span>
+          <div class="kpi-tags"><span class="chip" id="kpi-currency">—</span><span class="chip">Local</span></div>
         </div>
         <div class="card kpi">
           <span class="kpi-label">Ítems Activos</span>
-          <span class="kpi-value">1,284</span>
+          <span class="kpi-value" id="kpi-active-items">—</span>
         </div>
         <div class="card kpi kpi-alert">
           <span class="kpi-label">Alertas Críticas de Stock</span>
-          <span class="kpi-value kpi-value-red">12</span>
+          <span class="kpi-value kpi-value-red" id="kpi-alerts">—</span>
         </div>
       </div>
 
@@ -161,19 +130,14 @@
             <h3>Sugerencias de Reposición</h3>
             <table class="table">
               <thead><tr><th>Producto</th><th>Stock Actual</th><th>Punto Reorden</th><th>Sugerido</th></tr></thead>
-              <tbody>
-                <tr><td>Pepsi 350ml</td><td>8</td><td>25</td><td>60</td></tr>
-                <tr><td>Arroz 1kg</td><td>14</td><td>30</td><td>90</td></tr>
-              </tbody>
+              <tbody id="reorder-tbody"></tbody>
             </table>
           </div>
           <div class="card">
             <h3>Análisis de Inventario Muerto</h3>
             <table class="table">
               <thead><tr><th>Producto</th><th>Última Venta</th><th>Días sin Mov.</th><th>Valor</th></tr></thead>
-              <tbody>
-                <tr><td>Salsa BBQ 400g</td><td>12 mar 2026</td><td>162</td><td>$340</td></tr>
-              </tbody>
+              <tbody id="deadstock-tbody"></tbody>
             </table>
           </div>
         </div>
@@ -209,7 +173,7 @@
 
         <div class="bulk-bar" id="bulk-bar" hidden>
           <span id="bulk-count">0 seleccionados</span>
-          <button class="btn btn-sm btn-outline">Asignar categoría ▾</button>
+          <button class="btn btn-sm btn-outline" id="btn-asignar-categoria">Asignar categoría ▾</button>
           <button class="btn btn-sm btn-ghost" id="bulk-cancel">Cancelar</button>
         </div>
 
@@ -224,40 +188,7 @@
               <th>Proveedor Preferido</th>
             </tr>
           </thead>
-          <tbody>
-            <tr>
-              <td class="th-check"><input type="checkbox" class="row-check"></td>
-              <td><span class="color-tag tag-green"></span>Pepsi 350ml</td>
-              <td>Bebidas &gt; Gaseosas</td>
-              <td>UND</td>
-              <td>142</td>
-              <td>Distribuidora XYZ</td>
-            </tr>
-            <tr>
-              <td class="th-check"><input type="checkbox" class="row-check"></td>
-              <td><span class="color-tag tag-green"></span>Detergente Ropa Blanca 1kg</td>
-              <td>Limpieza</td>
-              <td>KG</td>
-              <td>36</td>
-              <td>Casa Química SA</td>
-            </tr>
-            <tr>
-              <td class="th-check"><input type="checkbox" class="row-check"></td>
-              <td><span class="color-tag tag-green"></span>Leche Deslactosada 1L</td>
-              <td><span class="tag-warning">SIN CATEGORIZAR</span></td>
-              <td>UND</td>
-              <td>210</td>
-              <td>Lácteos del Valle</td>
-            </tr>
-            <tr>
-              <td class="th-check"><input type="checkbox" class="row-check"></td>
-              <td><span class="color-tag tag-gray"></span>Arroz Superior 1kg</td>
-              <td>Abarrotes &gt; Granos</td>
-              <td>KG</td>
-              <td>420</td>
-              <td>Molinos del Sur</td>
-            </tr>
-          </tbody>
+          <tbody id="directory-tbody"></tbody>
         </table>
         <div class="table-footer">
           <span>Mostrando 1–20 de 840</span>
@@ -279,46 +210,64 @@
           <button class="tab" data-tab="politicas">Políticas de Reorden</button>
         </div>
 
-        <div class="config-grid">
-          <div class="tree-panel">
-            <h4>Árbol de Categorías</h4>
-            <ul class="tree" id="category-tree">
-              <li>
-                <span class="tree-toggle">▾</span> Bebidas
-                <ul>
-                  <li>
-                    <span class="tree-toggle">▾</span> Gaseosas
-                    <ul>
-                      <li class="tree-node selected" data-name="Pepsi" data-parent="Bebidas &gt; Gaseosas" data-count="4">
-                        <span class="tree-toggle">•</span> Pepsi
-                        <ul>
-                          <li class="tree-node" data-name="Coca-Cola" data-parent="Bebidas &gt; Gaseosas &gt; Pepsi" data-count="0"><span class="tree-toggle">○</span> Coca-Cola</li>
-                        </ul>
-                      </li>
-                      <li class="tree-node" data-name="Jugos" data-parent="Bebidas &gt; Gaseosas" data-count="0"><span class="tree-toggle">▸</span> Jugos</li>
-                    </ul>
-                  </li>
-                </ul>
-              </li>
-              <li class="tree-node" data-name="Lácteos" data-parent="—" data-count="0"><span class="tree-toggle">▸</span> Lácteos</li>
-              <li class="tree-node" data-name="Snacks" data-parent="—" data-count="0"><span class="tree-toggle">▸</span> Snacks</li>
-            </ul>
-            <button class="btn-add-root" id="btn-add-root">+ Agregar categoría raíz</button>
-            <p class="doc-note">Cada nodo es expandible; arrastra para reordenar la jerarquía Padre/Hijo.</p>
+        <!-- TAB: CATEGORÍAS -->
+        <div id="tab-categorias" class="tab-content">
+          <div class="config-grid">
+            <div class="tree-panel">
+              <h4>Árbol de Categorías</h4>
+              <ul class="tree" id="category-tree"></ul>
+              <button class="btn-add-root" id="btn-add-root">+ Agregar categoría raíz</button>
+              <p class="doc-note">Cada nodo es expandible; arrastra para reordenar la jerarquía Padre/Hijo.</p>
+            </div>
+            <div class="edit-panel">
+              <h4>Editar: <span id="edit-name">—</span></h4>
+              <label class="field-label">Nombre
+                <input type="text" id="edit-name-input" value="">
+              </label>
+              <label class="field-label">Categoría padre
+                <input type="text" id="edit-parent-input" value="—" disabled>
+              </label>
+              <p class="field-label">Productos asociados: <strong id="edit-count">0</strong></p>
+              <div class="edit-actions">
+                <button class="btn btn-primary" id="btn-guardar">Guardar</button>
+                <button class="btn btn-danger-outline" id="btn-eliminar">Eliminar</button>
+              </div>
+            </div>
           </div>
+        </div>
 
-          <div class="edit-panel">
-            <h4>Editar: <span id="edit-name">Pepsi</span></h4>
-            <label class="field-label">Nombre
-              <input type="text" id="edit-name-input" value="Pepsi">
-            </label>
-            <label class="field-label">Categoría padre
-              <input type="text" id="edit-parent-input" value="Bebidas > Gaseosas" disabled>
-            </label>
-            <p class="field-label">Productos asociados: <strong id="edit-count">4</strong></p>
-            <div class="edit-actions">
-              <button class="btn btn-primary" id="btn-guardar">Guardar</button>
-              <button class="btn btn-danger-outline" id="btn-eliminar">Eliminar</button>
+        <!-- TAB: UBICACIONES -->
+        <div id="tab-ubicaciones" class="tab-content" hidden>
+          <div class="config-grid">
+            <div class="tree-panel">
+              <h4>Árbol de Ubicaciones</h4>
+              <ul class="tree" id="location-tree"></ul>
+            </div>
+            <div class="edit-panel">
+              <h4>Editar: <span id="loc-edit-name">—</span></h4>
+              <label class="field-label">Nombre
+                <input type="text" id="loc-edit-name-input" value="">
+              </label>
+              <label class="field-label">Ubicación padre
+                <input type="text" id="loc-edit-parent-input" value="—" disabled>
+              </label>
+              <p class="field-label">Productos en esta ubicación: <strong id="loc-edit-count">0</strong></p>
+              <div class="edit-actions">
+                <button class="btn btn-primary" id="loc-btn-guardar">Guardar</button>
+                <button class="btn btn-danger-outline" id="loc-btn-eliminar">Eliminar</button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- TAB: POLÍTICAS DE REORDEN -->
+        <div id="tab-politicas" class="tab-content" hidden>
+          <div style="max-width:600px;">
+            <input type="text" class="search-input" id="rp-buscar" placeholder="Buscar por nombre de producto…" style="margin-bottom:14px;">
+            <div id="rp-lista"></div>
+            <div class="policy-pagination">
+              <span id="rp-info">Mostrando 1–4 de 4</span>
+              <div class="pagination" id="rp-pagination">« ‹ 1 › »</div>
             </div>
           </div>
         </div>
@@ -329,6 +278,135 @@
 </div>
 
 <div class="toast" id="toast"></div>
+
+<!-- MODAL: Crear Nuevo Producto -->
+<div class="modal-backdrop" id="modal-crear">
+  <div class="modal">
+    <div class="modal-header">
+      <h3>Crear Nuevo Producto</h3>
+      <button class="modal-close" data-close-modal>&times;</button>
+    </div>
+    <div class="modal-body">
+      <label class="modal-field">Nombre
+        <input type="text" id="mc-nombre" placeholder="Nombre del producto">
+      </label>
+      <label class="modal-field">Descripción
+        <input type="text" id="mc-descripcion" placeholder="Descripción opcional">
+      </label>
+      <div class="modal-field-row">
+        <div>
+          <label class="modal-field">Tipo de Producto
+            <select id="mc-tipo" class="modal-select"></select>
+          </label>
+        </div>
+        <div>
+          <label class="modal-field">Unidad de Medida
+            <select id="mc-uom" class="modal-select"></select>
+          </label>
+        </div>
+      </div>
+      <label class="modal-field">Código de Barras
+        <input type="text" id="mc-barcode" placeholder="EAN / UPC">
+      </label>
+      <label class="modal-field">Marca
+        <input type="text" id="mc-marca" placeholder="Marca del producto">
+      </label>
+      <label class="modal-field">Categoría
+        <select id="mc-categoria" class="modal-select"></select>
+      </label>
+    </div>
+    <div class="modal-footer">
+      <button class="btn btn-outline" data-close-modal>Cancelar</button>
+      <button class="btn btn-primary" id="mc-aceptar">Aceptar</button>
+    </div>
+  </div>
+</div>
+
+<!-- MODAL: Buscar Productos -->
+<div class="modal-backdrop" id="modal-buscar">
+  <div class="modal">
+    <div class="modal-header">
+      <h3>Buscar Producto</h3>
+      <button class="modal-close" data-close-modal>&times;</button>
+    </div>
+    <div class="modal-body">
+      <input type="text" class="modal-search" id="mb-buscar" placeholder="Escriba para buscar…">
+      <div class="modal-results-list" id="mb-resultados"></div>
+    </div>
+    <div class="modal-footer">
+      <button class="btn btn-outline" data-close-modal>Cancelar</button>
+      <button class="btn btn-primary" id="mb-aceptar" disabled>Aceptar</button>
+    </div>
+  </div>
+</div>
+
+<!-- MODAL: Asignar Categoría (Directorio) -->
+<div class="modal-backdrop" id="modal-asignar-categoria">
+  <div class="modal">
+    <div class="modal-header">
+      <h3>Asignar Categoría</h3>
+      <button class="modal-close" data-close-modal>&times;</button>
+    </div>
+    <div class="modal-body">
+      <input type="text" class="modal-search" id="mac-buscar" placeholder="Buscar categoría…">
+      <div class="modal-tree-container">
+        <ul class="tree" id="mac-category-tree"></ul>
+      </div>
+      <p class="field-label" style="margin-top:8px;margin-bottom:0;">Seleccionado: <strong id="mac-seleccionado">—</strong></p>
+    </div>
+    <div class="modal-footer">
+      <button class="btn btn-outline" data-close-modal>Cancelar</button>
+      <button class="btn btn-primary" id="mac-aceptar" disabled>Aceptar</button>
+    </div>
+  </div>
+</div>
+
+<!-- MODAL: Editar Política de Reorden -->
+<div class="modal-backdrop" id="modal-editar-politica">
+  <div class="modal">
+    <div class="modal-header">
+      <h3>Editar Política de Reorden</h3>
+      <button class="modal-close" data-close-modal>&times;</button>
+    </div>
+    <div class="modal-body">
+      <label class="modal-field">Producto
+        <input type="text" id="mep-producto" disabled>
+      </label>
+      <label class="modal-field">Nivel de Reorden
+        <input type="number" id="mep-nivel" min="0">
+      </label>
+      <label class="modal-field">Cantidad de Reorden
+        <input type="number" id="mep-cantidad" min="1">
+      </label>
+    </div>
+    <div class="modal-footer">
+      <button class="btn btn-outline" data-close-modal>Cancelar</button>
+      <button class="btn btn-primary" id="mep-aceptar">Aceptar</button>
+    </div>
+  </div>
+</div>
+
+<!-- MODAL: Editar Ubicación -->
+<div class="modal-backdrop" id="modal-location-edit">
+  <div class="modal">
+    <div class="modal-header">
+      <h3>Editar Ubicación</h3>
+      <button class="modal-close" data-close-modal>&times;</button>
+    </div>
+    <div class="modal-body">
+      <label class="modal-field">Nombre
+        <input type="text" id="ml-nombre">
+      </label>
+      <label class="modal-field">Ubicación Padre
+        <input type="text" id="ml-padre" disabled>
+      </label>
+    </div>
+    <div class="modal-footer">
+      <button class="btn btn-outline" data-close-modal>Cancelar</button>
+      <button class="btn btn-primary" id="ml-aceptar">Aceptar</button>
+    </div>
+  </div>
+</div>
 
 <script src="script.js"></script>
 </body>
