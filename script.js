@@ -22,7 +22,7 @@ let state = {
 // ============ MOCK DATA LOADER ============
 async function loadMockData() {
   try {
-    const res = await fetch('./mockData.json');
+    const res = await fetch('./data/mockData.json');
     if (!res.ok) throw new Error(`HTTP ${res.status}`);
     const data = await res.json();
 
