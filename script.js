@@ -477,6 +477,10 @@ itemsTable.addEventListener('click', (e) => {
   }
 });
 
+document.querySelector('#view-directorio .btn-primary').addEventListener('click', () => {
+  openModal('modal-crear');
+});
+
 document.getElementById('btn-validar-todo').addEventListener('click', () => {
   document.querySelectorAll('#items-table tr[data-row]:not(.row-resolved)').forEach(row => {
     row.classList.add('row-resolved');
